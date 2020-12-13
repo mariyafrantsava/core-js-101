@@ -197,7 +197,7 @@ function getHead(/* arr, n */) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-  return String(arr).split(', ').slice(-n);
+  return arr.slice(-n);
   // throw new Error('Not implemented');
 }
 
@@ -261,6 +261,11 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(/* arr */) {
+  // function transformArr(value) {
+  //   value += value;
+  //   return value;
+  // }
+  // return arr.map(transformArr);
   throw new Error('Not implemented');
 }
 
@@ -330,8 +335,15 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  function isPositive(number) {
+    return typeof number !== 'string' && number > 0;
+  }
+  function clear(number) {
+    return number !== false;
+  }
+  return arr.map(isPositive).filter(clear).length;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -363,8 +375,8 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  return arr.reduce((acc, item) => acc + item, 0);
 }
 
 /**
@@ -443,8 +455,20 @@ function toStringList(/* arr */) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  arr.sort((a, b) => {
+    if (a.city > b.city) {
+      return -1;
+    }
+    return 0;
+  });
+
+  return arr.sort((a, b) => {
+    if (a.country > b.country) {
+      return 1;
+    }
+    return -1;
+  });
 }
 
 /**

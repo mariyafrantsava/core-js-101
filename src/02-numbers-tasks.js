@@ -54,8 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
-  // throw new Error('Not implemented');
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -165,9 +164,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a, b, c) {
-  const result = Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
-  return result;
-  // throw new Error('Not implemented');
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
