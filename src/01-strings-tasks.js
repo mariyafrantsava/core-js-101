@@ -214,6 +214,24 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(/* width, height */) {
+  //   let first = '┌';
+  //   let center = '│';
+  //   let last = '└';
+
+  //   for (let w = 0; w < width - 2; w + 1) {
+  //     first += '─';
+  //     center += ' ';
+  //     last += '─';
+  //   }
+  //   first += '┐\n';
+  //   center += '│\n';
+  //   last += '┘\n';
+  //   let result = first;
+  //   for (let i = 0; i < height - 2; i + 1) {
+  //     result += center;
+  //   }
+  //   result += last;
+  //   return result;
   throw new Error('Not implemented');
 }
 
