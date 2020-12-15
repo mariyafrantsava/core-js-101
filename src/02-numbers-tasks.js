@@ -111,12 +111,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  // const multAB = x1 * x2 + y1 * y2;
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const multAB = x1 * x2 + y1 * y2;
+  return Math.acos(multAB / (Math.hypot(x1, y1) * Math.hypot(x2, y2)));
   // const modulA = Math.sqrt(x1 ** 2 + y1 ** 2);
   // const modulB = Math.sqrt(x2 ** 2 + y2 ** 2);
   // return multAB / (modulA * modulB);
-  throw new Error('Not implemented');
 }
 
 /**
@@ -209,18 +209,13 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  //   let counter = 0;
-  //   for (let i = 2; i <= Math.sqrt(n); i + 1) {
-  //     if (n % i === 0) {
-  //       counter += 1;
-  //     }
-  //     if (counter > 0) {
-  //       return false;
-  //     }
-  //   }
-  //   return true;
-  throw new Error('Not implemented');
+function isPrime(n) {
+  for (let i = 2; i <= Math.sqrt(n); i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**

@@ -96,8 +96,11 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  if (a + b > c && a + c > b && c + b > a) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -180,8 +183,9 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const firstNonRepeated = str.match(/(.)(?!.*\1)(?<!\1.+)/);
+  return firstNonRepeated && firstNonRepeated[1];
 }
 
 
@@ -310,8 +314,16 @@ function getDigitalRoot(/* num */) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const openedBrackets = '[({<';
+  const closeedBrackets = '])}>';
+  const result = [];
+  str.split('').forEach((x) => {
+    if (openedBrackets.includes(x)
+      || openedBrackets.indexOf(result.pop())
+      !== closeedBrackets.indexOf(x)) result.push(x);
+  });
+  return result.length === 0;
 }
 
 
